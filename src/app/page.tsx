@@ -1,7 +1,7 @@
 const page = ()=>{
   return(
     <div>
-    Olá mundo
+      HELLO WORLD
     </div>
   )
 }
