@@ -1,5 +1,6 @@
 'use client'
 import { Product } from "../types/Product"
+import { ProductItem } from "./components/ProductItem"
 
 const getProducts = async()=>{
   const res = await fetch('https://fakestoreapi.com/products')
@@ -17,15 +18,14 @@ const getProducts = async()=>{
 const page = async()=>{
 
   const products = await getProducts();
-  console.log(products);
+
   
   return(
     <div className="container pt-8 px-8 mx-auto xl:px-0">
       <div className="grid grid-cols-1 sm:grid-cols-2 mg:grid-cols-3 lg:grid-cols-4 xl:gap-6">
       {products.map((product:Product)=>(
         <div key={product.id}>
-          <img className="w-10" src={product.image} alt="" />
-          <h1>{product.title}</h1>
+          <ProductItem product={product}/>
         </div>
       ))}
       </div>
